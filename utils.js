@@ -13,8 +13,8 @@ exports.paths = {
 }
 
 exports.constants = {
-  appname: 'ngNodeGulpSeed',
-  appnamecomp: 'ngNodeGulpSeedComp'
+  appname: 'deepEmotion',
+  appnamecomp: 'deepEmotionComp'
 }
 
 exports.errorHandler = function (title) {
