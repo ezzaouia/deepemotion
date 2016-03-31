@@ -29,6 +29,6 @@ _.each(directives, function (compDirectives, exportsKey) {
   })
 })
 
-let app = angular.module(utils.constants.appname, [utils.constants.appnamecomp])
+let app = angular.module(utils.constants.appname, [utils.constants.appnamecomp, 'ngMaterial'])
 
 app.config(function () {})
