@@ -2,10 +2,10 @@
 
 /* @ngInject */
 exports.Test1Controller1 = function ($scope) {
-  $scope.array = ['mohamed', 'yahyaa']
+  $scope.array = ['one', 'two']
 }
 
 /* @ngInject */
 exports.Test1Controller2 = function ($scope) {
-  $scope.array = ['mohamed2', 'yahya2']
+  $scope.array = ['one1', 'two2']
 }
