@@ -37,9 +37,29 @@
 
 </head>
 
-<body>
-  <!-- Insert your HTML here -->
-  <h1>Salam, Bonjour, Hi :)</h1> {{2+5}}
+<body layout="row" class="layout-row" ng-controller="SidebarController">
+
+  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+
+  </md-sidenav>
+
+  <div layout="column" tabIndex="-1" role="main" flex>
+
+    <div ng-controller="ToolbarController">
+      <md-toolbar class="md-whiteframe-glow-z2 site-content-toolbar">
+        <div class="md-toolbar-tools docs-toolbar-tools" tabIndex="-1">
+          <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Toggle Menu">
+            <md-icon md-svg-src="app/assets/images/ic_menu_24px.svg"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+    </div>
+
+    <md-content flex id="content">
+      <div ng-view></div>
+    </md-content>
+
+  </div>
 
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>

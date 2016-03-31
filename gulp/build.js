@@ -17,5 +17,5 @@ gulp.task('browserify', ['ng-app:modules'], gulpconf.bundler)
 gulp.task('clean', cleanup)
 
 function cleanup() {
-  return del([utils.paths.dist, utils.paths.tmp, path.join(utils.paths.client, 'app', 'index.*.js')])
+  return del.sync([utils.paths.dist, utils.paths.tmp, path.join(utils.paths.client, 'app/index.*.js')])
 }

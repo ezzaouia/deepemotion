@@ -13,19 +13,21 @@ let ngControllersPath = path.join(utils.paths.client, 'app', 'index.controllers.
 let ngServicesPath = path.join(utils.paths.client, 'app', 'index.services.js')
 let ngDirectivesPath = path.join(utils.paths.client, 'app', 'index.directives.js')
 
-// ng module files
-let ngControllers = glob.sync(path.join(utils.paths.client, 'app', '/**/*.controllers.js'), {
-  ignore: path.join(utils.paths.client, 'app/*.js')
-})
-let ngServices = glob.sync(path.join(utils.paths.client, 'app', '/**/*.services.js'), {
-  ignore: path.join(utils.paths.client, 'app/*.js')
-})
-let ngDirectives = glob.sync(path.join(utils.paths.client, 'app', '/**/*.directives.js'), {
-  ignore: path.join(utils.paths.client, 'app/*.js')
-})
+
+
 
 
 gulp.task('ng-app:modules', function () {
+  // ng module files
+  let ngControllers = glob.sync(path.join(utils.paths.client, 'app', '/**/*.controllers.js'), {
+    ignore: path.join(utils.paths.client, 'app/*.js')
+  })
+  let ngServices = glob.sync(path.join(utils.paths.client, 'app', '/**/*.services.js'), {
+    ignore: path.join(utils.paths.client, 'app/*.js')
+  })
+  let ngDirectives = glob.sync(path.join(utils.paths.client, 'app', '/**/*.directives.js'), {
+    ignore: path.join(utils.paths.client, 'app/*.js')
+  })
 
   fs.writeFileSync(ngControllersPath, '\'use strict\'\n', 'utf8')
   fs.writeFileSync(ngServicesPath, '\'use strict\'\n', 'utf8')
