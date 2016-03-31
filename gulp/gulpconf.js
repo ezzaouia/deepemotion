@@ -10,6 +10,7 @@ const
 
   gsourcemaps = require('gulp-sourcemaps'),
   guglify = require('gulp-uglify'),
+  ngAnnotate = require('gulp-ng-annotate'),
 
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
@@ -50,6 +51,7 @@ exports.bundler = function () {
     .pipe(gsourcemaps.init({
       loadMaps: true
     }))
+    .pipe(ngAnnotate())
     .pipe(guglify())
     .pipe(gsourcemaps.write('./'))
     .pipe(gulp.dest(utils.paths.dist))
@@ -68,6 +70,9 @@ exports.bundlerWatcher = function () {
     .pipe(buffer())
     .pipe(gsourcemaps.init({
       loadMaps: true
+    }))
+    .pipe(ngAnnotate({
+      add: true
     }))
     .pipe(guglify())
     .pipe(gsourcemaps.write('./'))

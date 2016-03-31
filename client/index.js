@@ -1,28 +1,30 @@
 'use strict'
 
 const
-  glob = require('glob'),
-  path = require('path'),
   utils = require('../utils'),
-  _ = require('underscore')
+  _ = require('underscore'),
+  controllers = require('./app/index.controllers'),
+  services = require('./app/index.services'),
+  directives = require('./app/index.directives')
 
-/* jshint -W117*/
+/* jshint -W117 */
 let components = angular.module(utils.constants.appnamecomp, ['ng'])
 
-glob.sync('./app/components/**/*.controllers.js').forEach(function (file) {
-  _.each(require(path.resolve(file)), function (controller, name) {
+/* jshint -W098 */
+_.each(controllers, function (compControllers, exportsKey) {
+  _.each(compControllers, function (controller, name) {
     components.controller(name, controller)
   })
 })
 
-glob.sync('./app/components/**/*.services.js').forEach(function (file) {
-  _.each(require(path.resolve(file)), function (service, name) {
+_.each(services, function (compServices, exportsKey) {
+  _.each(compServices, function (service, name) {
     components.factory(name, service)
   })
 })
 
-glob.sync('./app/components/**/*.directives.js').forEach(function (file) {
-  _.each(require(path.resolve(file)), function (directive, name) {
+_.each(directives, function (compDirectives, exportsKey) {
+  _.each(compDirectives, function (directive, name) {
     components.directive(name, directive)
   })
 })
