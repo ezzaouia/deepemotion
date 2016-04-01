@@ -29,6 +29,12 @@ _.each(directives, function (compDirectives, exportsKey) {
   })
 })
 
-let app = angular.module(utils.constants.appname, [utils.constants.appnamecomp, 'ngMaterial'])
+let app = angular.module(utils.constants.appname, [utils.constants.appnamecomp, 'ngMaterial', 'ngMdIcons'])
 
-app.config(function () {})
+/* @ngInject */
+app.config(function ($mdIconProvider, $mdThemingProvider) {
+  $mdIconProvider.icon("menu", "./app/assets/images/ic_menu_24px.svg", 24)
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('red')
+})

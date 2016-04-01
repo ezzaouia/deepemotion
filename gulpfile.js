@@ -15,7 +15,7 @@ try {
     require('./gulp/' + file)
   })
 } catch (err) {
-  utils.errorHandler('wrench.readdirSyncRecursive')(err)
+  return utils.errorHandler('wrench.readdirSyncRecursive', err)
 }
 
 gulp.task('default', ['build'])

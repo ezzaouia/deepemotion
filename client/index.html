@@ -34,32 +34,37 @@
   <title>DeepEmotion</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  <link rel="stylesheet" href="app/assets/css/app.css">
 
+  <style type="text/css">
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
 </head>
 
-<body layout="row" class="layout-row" ng-controller="SidebarController">
+<!--  ng-controller="SidenavController as sidenav" -->
 
-  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+<body ng-cloak layout="row" ng-controller="SidenavController as sidenav">
 
-  </md-sidenav>
-
-  <div layout="column" tabIndex="-1" role="main" flex>
-
-    <div ng-controller="ToolbarController">
-      <md-toolbar class="md-whiteframe-glow-z2 site-content-toolbar">
-        <div class="md-toolbar-tools docs-toolbar-tools" tabIndex="-1">
-          <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Toggle Menu">
-            <md-icon md-svg-src="app/assets/images/ic_menu_24px.svg"></md-icon>
-          </md-button>
-        </div>
-      </md-toolbar>
-    </div>
-
-    <md-content flex id="content">
-      <div ng-view></div>
-    </md-content>
+  <div ng-include="'app/components/sidenavToolbar/sidenav.html'" layout="vertical">
 
   </div>
+
+  <div layout="column" flex>
+    <div ng-include="'app/components/sidenavToolbar/toolbar-header.html'"></div>
+
+    <md-content flex id="content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam corporis facere animi adipisci. At laborum alias ullam enim vero dolorem fugit, modi recusandae deleniti et, repudiandae nobis perspiciatis incidunt dicta.
+    </md-content>
+  </div>
+
+  <!--  <div ng-view></div>-->
 
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -67,7 +72,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-  <script src="./dist/bundle.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+  <script src="./tmp/bundle.js"></script>
 
   <script>
     (function (i, s, o, g, r, a, m) {

@@ -17,8 +17,6 @@ exports.constants = {
   appnamecomp: 'deepEmotionComp'
 }
 
-exports.errorHandler = function (title) {
-  return function (err) {
-    console.log(colors.red('[' + title + ']'), err.toString())
-  }
+exports.errorHandler = function (title, err) {
+  console.log(colors.magenta.bold('[' + title + ']'), colors.red.bold(err.toString()))
 }

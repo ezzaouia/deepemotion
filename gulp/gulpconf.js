@@ -43,7 +43,8 @@ exports.bundler = function () {
     })
     .bundle()
     .on('error', function (err) {
-      utils.errorHandler('bunbler')(err)
+      utils.errorHandler('bunbler', err)
+      this.emit('end')
     })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest(utils.paths.tmp))
@@ -58,12 +59,14 @@ exports.bundler = function () {
 }
 
 exports.bundlerWatcher = function () {
+  console.log('==> Starting bundlerWatcher')
   return __bundlerWatcher.transform('babelify', {
       presets: ['es2015']
     })
     .bundle()
     .on('error', function (err) {
-      utils.errorHandler('bunbler')(err)
+      utils.errorHandler('bundlerWatcher', err)
+      this.emit('end')
     })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest(utils.paths.tmp))
@@ -78,4 +81,7 @@ exports.bundlerWatcher = function () {
     .pipe(gsourcemaps.write('./'))
     .pipe(gulp.dest(utils.paths.dist))
     .pipe(browserSync.stream())
+    .on('finish', function () {
+      console.log('Finished bundlerWatcher <==')
+    })
 }

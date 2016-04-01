@@ -10,9 +10,15 @@ const
   gutil = require('gulp-util')
 
 gulp.task('watch', ['watch1'], function () {
-  watch(path.join(utils.paths.client, '/app/components/**'), function () {
-    gulp.start('watch1')
-  })
+  watch(
+          [
+            path.join(utils.paths.client, '/*.js'),
+            path.join(utils.paths.client, '/app/components/**'),
+            "!" + path.join(utils.paths.client, '/app/components/**/*.html')
+          ],
+    function () {
+      gulp.start('watch1')
+    })
 })
 
 gulp.task('watch2', ['wclean'], function () {
