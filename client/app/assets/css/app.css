@@ -14,11 +14,19 @@ md-toolbar h1 {
   text-align: center;
 }
 
+md-list-item .md-list-item-inner {
+  font-weight: 500;
+}
+
+md-list-item.selected {
+  background: #267ED5;
+}
+
 md-toolbar .md-toolbar-tools h1 {
   font-size: 1.250em;
   font-weight: 400;
 }
 
 #content {
-  padding: 5px 40px 10px 40px;
+  padding: 10px 10px 10px 10px;
 }

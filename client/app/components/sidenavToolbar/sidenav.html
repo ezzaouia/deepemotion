@@ -1,5 +1,13 @@
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
   <md-toolbar>
-    <h1> Lorem ipsum.</h1>
+    <h1> {{sidenav.title}} </h1>
   </md-toolbar>
+  <md-content>
+    <md-list>
+      <md-list-item ng-class="{ 'selected': item === sidenav.selected }" class="mdl-navigation__link menu-item menu-item-type-post_type menu-item-object-page" ng-click="sidenav.selectItem(item, 'left')" ng-repeat="item in sidenav.items">
+        {{item}}
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
 </md-sidenav>
