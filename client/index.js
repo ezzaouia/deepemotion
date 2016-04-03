@@ -29,6 +29,7 @@ _.each(directives, function (compDirectives, exportsKey) {
   })
 })
 
+// , 'lfNgMdFileInput'
 let app = angular.module(utils.constants.appname, [utils.constants.appnamecomp, 'ngMaterial', 'ngMdIcons'])
 
 /* @ngInject */
