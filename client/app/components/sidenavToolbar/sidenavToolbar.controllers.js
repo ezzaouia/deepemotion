@@ -24,12 +24,13 @@ export class SidenavController {
         title: 'Attention',
         textContent: 'This is an example of how easy dialogs can be!',
         ok: 'Close'
-      });
+      })
+
       $mdDialog
         .show(alert)
         .finally(function () {
-          alert = undefined;
-        });
+          alert = undefined
+        })
     }
     this.title = 'Face Emotion Recognition'
     this.items = ['Image Api', 'Video Api']

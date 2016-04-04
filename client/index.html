@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
   <link rel="stylesheet" href="app/assets/css/app.css">
-  <!--  <link rel="stylesheet" href="./app/assets/vendors/css/lf-ng-md-file-input.min.css">-->
+  <link rel="stylesheet" href="./app/assets/vendors/css/lf-ng-md-file-input.min.css">
 
   <style type="text/css">
     [ng\:cloak],
@@ -62,12 +62,24 @@
 
     <md-content flex id="content">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam corporis facere animi adipisci. At laborum alias ullam enim vero dolorem fugit, modi recusandae deleniti et, repudiandae nobis perspiciatis incidunt dicta.
+
+      <h2>Recognize Emotions in Images</h2>
+
+      <div ng-controller="EmotionImageController as emotionImg">
+        <lf-ng-md-file-input lf-files="files" lf-option="optoin" lf-placeholder="Pick Image" lf-browse-label="Open Image" lf-remove-label="Delete" drag preview ng-disabled="disabled" accept="image/*">
+        </lf-ng-md-file-input>
+        <br>
+        <md-checkbox ng-model="disabled" aria-label="disabled">
+          Disable
+        </md-checkbox>
+      </div>
+
+
     </md-content>
 
   </div>
 
   <!--  <div ng-view></div>-->
-
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -75,7 +87,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
-  <!--  <script src="./app/assets/vendors/css/lf-ng-md-file-input.min.js"></script>-->
+  <script src="./app/assets/vendors/js/lf-ng-md-file-input.min.js"></script>
   <script src="./tmp/bundle.js"></script>
 
   <script>
