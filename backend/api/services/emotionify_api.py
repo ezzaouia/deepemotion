@@ -1,6 +1,6 @@
 class EmotionifyApi(object):
 
-  def init(self):
+  def __init__(self):
     pass
 
   def predict(self, X):

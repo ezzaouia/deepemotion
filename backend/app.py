@@ -6,7 +6,7 @@ import os
 import sys
 import numpy as np
 
-
+UPLOAD_FOLDER = './tmp/'
 emotion_labels = {0: 'Anger', 1: 'Disgust', 2: 'Fear', 3: 'Happiness', 4: 'Sadness', 5: 'Surprise', 6: 'Neutral'}
 
 # import caffe
@@ -50,8 +50,6 @@ import utils
 
 app = flask.Flask(__name__)
 
-UPLOAD_FOLDER = './tmp/'
-
 @app.route('/emotionify_uplaod', methods=['POST'])
 def emotionify_upload():
   try:
@@ -64,13 +62,14 @@ def emotionify_upload():
     # image = utils.open_img(filename)
     image = caffe.io.load_image(filename)
     transformed_image = transformer.preprocess('data', image)
+
     # copy the image data into the memory allocated for the net
     net.blobs['data'].data[...] = transformed_image
 
     ### perform classification
     output = net.forward()
 
-    output_prob = output['prob'][0]  # the output probability vector for the first image in the batch
+    output_prob = output['prob'][0]
 
     dict_ = dict( (str(emotion_labels.get(a)), str(b))  for a, b in zip(range(len(output_prob)), output_prob))
 

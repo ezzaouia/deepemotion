@@ -6,7 +6,8 @@
 const
   gulp = require('gulp'),
   utils = require('./utils'),
-  wrench = require('wrench')
+  wrench = require('wrench'),
+  del = require('del')
 
 try {
   wrench.readdirSyncRecursive('./gulp/').filter(function (file) {
@@ -19,3 +20,8 @@ try {
 }
 
 gulp.task('default', ['build'])
+
+
+gulp.task('cleanupload', function () {
+  return del.sync(['backend/tmp/*'])
+})
